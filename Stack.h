@@ -1,0 +1,53 @@
+#pragma once
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  File:              Stack.h
+//  Description:       Declarations for Generic Stack (LIFO, linked-list based)
+//  Author:            Pallavi Sable
+//  Date:              06/01/2026
+//
+////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+using namespace std;
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  Class Name:        StackNode
+//  Description:       Node structure for Stack
+//
+////////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+class StackNode
+{
+public:
+    T data;
+    StackNode<T> *next;
+
+    StackNode(T value);
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  Class Name:        Stack
+//  Description:       LIFO Stack with push/pop/peep/display ops
+//
+////////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+class Stack
+{
+private:
+    StackNode<T> *top;
+    int iCount;
+
+public:
+    Stack();
+    void push(T value);
+    T    pop();
+    T    peep();
+    void Display();
+    int  Count();
+};
+
+#include "Stack.tpp"

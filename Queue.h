@@ -1,0 +1,53 @@
+#pragma once
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  File:              Queue.h
+//  Description:       Declarations for Generic Queue (FIFO, linked-list based)
+//  Author:            Pallavi Sable
+//  Date:              06/01/2026
+//
+////////////////////////////////////////////////////////////////////////////////////
+
+#include <iostream>
+using namespace std;
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  Class Name:        QueueNode
+//  Description:       Node structure for Queue
+//
+////////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+class QueueNode
+{
+public:
+    T data;
+    QueueNode<T> *next;
+
+    QueueNode(T value);
+};
+
+////////////////////////////////////////////////////////////////////////////////////
+//
+//  Class Name:        Queue
+//  Description:       FIFO Queue with enqueue/dequeue/display ops
+//
+////////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+class Queue
+{
+private:
+    QueueNode<T> *first;
+    QueueNode<T> *last;
+    int iCount;
+
+public:
+    Queue();
+    void enqueue(T value);
+    T    dequeue();
+    void Display();
+    int  Count();
+};
+
+#include "Queue.tpp"
